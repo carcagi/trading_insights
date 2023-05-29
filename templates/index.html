@@ -23,6 +23,7 @@
                 dataType: 'json',
                 success: function(data) {
                     createChart(data);
+                    fetchIntersections();
                 },
                 error: function(xhr, status, error) {
                     console.error(error);
@@ -33,6 +34,14 @@
         // Function to fetch data from the server
         function fetchData(asset, window) {
             return $.getJSON('/data?asset=' + asset + '&window=' + window);
+        }
+
+        // Function to fetch intersections from the server
+        function fetchIntersections() {
+            $.getJSON('/intersections?asset=ETH/USDT&window=60', function(intersections) {
+                // Process and display the intersections as needed
+                console.log(intersections);
+            });
         }
 
         // Function to create the chart with the provided data

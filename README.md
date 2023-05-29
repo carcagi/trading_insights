@@ -1,5 +1,16 @@
 # Simple Trading Advisor App
 
+This is a sample trading advisor application built for learning purposes. It provides basic functionality to visualize and analyze financial data using moving averages. However, please note the following:
+
+**Disclaimer: This software is not a valid financial advisor. Use it at your own risk.**
+
+- The information and analysis provided by this software are for educational and informational purposes only.
+- Trading and investing involve substantial risk, and you should carefully consider your financial situation and consult with a professional advisor before making any trading or investment decisions.
+- The software does not provide any guarantees or warranties regarding the accuracy, reliability, or completeness of the information and analysis presented.
+- Any financial decisions you make based on the software's output are solely your own responsibility.
+
+Remember, trading and investing in financial markets carry inherent risks, and past performance is not indicative of future results. Always exercise caution and conduct thorough research before making any financial decisions.
+
 ![name](static/img/website.jpeg)
 
 ## Description

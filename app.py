@@ -12,13 +12,12 @@ def fetch_data(asset, limit):
     return df
 
 def calculate_sma(df, window):
-    df['sma'] = df['close'].rolling(window=window).mean()
+    df['sma_short'] = df['close'].rolling(window=window).mean()
+    df['sma_long'] = df['close'].rolling(window=window*2).mean()
+    # Remove the NaN data points
+    df.dropna(subset=['sma_short', 'sma_long'], inplace=True)
 
 app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return render_template('index.html')
 
 @app.route('/data', methods=['GET'])
 def data():
@@ -28,6 +27,9 @@ def data():
     calculate_sma(df, window)
     return jsonify(df.to_dict(orient='records'))
 
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

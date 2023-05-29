@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 
+
 def fetch_data(asset, limit):
     exchange = ccxt.binance()
     data = exchange.fetch_ohlcv(asset, timeframe='1d', limit=limit)

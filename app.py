@@ -17,6 +17,8 @@ def calculate_sma(df, window):
     # Remove the NaN data points
     df.dropna(subset=['sma_short', 'sma_long'], inplace=True)
 
+# Routes
+
 app = Flask(__name__)
 
 @app.route('/data', methods=['GET'])
@@ -25,7 +27,9 @@ def data():
     window = int(request.args.get('window'))
     df = fetch_data(asset, 500)
     calculate_sma(df, window)
-    return jsonify(df.to_dict(orient='records'))
+    data = df[['timestamp', 'close', 'sma_short', 'sma_long']].to_dict(orient='records')
+    
+    return jsonify(data)
 
 @app.route('/')
 def home():

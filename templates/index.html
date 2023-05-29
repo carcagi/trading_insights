@@ -8,8 +8,8 @@
 </head>
 <body>
     <form id="asset-form">
-        <input type="text" id="asset-input" placeholder="Asset">
-        <input type="number" id="window-input" placeholder="Window">
+        <input type="text" id="asset-input" placeholder="Asset" value="ETH/USDT">
+        <input type="number" id="window-input" placeholder="Window" value="60">
         <button type="submit">Submit</button>
     </form>
     <canvas id="chart"></canvas>
@@ -70,6 +70,7 @@
                 }
             });
 
+
             // Event listener for form submission
             $('#asset-form').on('submit', function(e) {
                 e.preventDefault();
@@ -83,12 +84,12 @@
                     chart.data.datasets[0].data = updatedData.map(item => ({ x: new Date(item.timestamp), y: item.close }));
                     chart.data.datasets[1].data = updatedData.map(item => ({ x: new Date(item.timestamp), y: item.sma_short }));
                     chart.data.datasets[2].data = updatedData.map(item => ({ x: new Date(item.timestamp), y: item.sma_long }));
+
                     chart.update();
                 });
             });
         }
-
-
+        
     </script>
 </body>
 </html>
